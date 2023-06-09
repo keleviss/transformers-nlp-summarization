@@ -5,7 +5,7 @@ import nltk
 nltk.download('punkt')
 from nltk.tokenize import sent_tokenize
 from datasets import load_dataset, DatasetDict
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, Seq2SeqTrainer, Seq2SeqTrainingArguments, DataCollatorForSeq2Seq
+from transformers import Seq2SeqTrainer, Seq2SeqTrainingArguments, DataCollatorForSeq2Seq
 
 dataset = load_dataset("multi_news")
 
@@ -33,6 +33,7 @@ else:
 # model = MT5ForConditionalGeneration.from_pretrained(model_checkpoint)
 
 #FACEBOOK/BART-BASE
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 model_checkpoint = "facebook/bart-base"
 tokenizer = AutoTokenizer.from_pretrained(model_checkpoint)
 model = AutoModelForSeq2SeqLM.from_pretrained(model_checkpoint)
